@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@core/routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderModule } from '@shared/modules/header/header.module';
+import { AppLayoutModule } from '@shared/modules/app-layout/app-layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +12,7 @@ import { HeaderModule } from '@shared/modules/header/header.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HeaderModule,
+    AppLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
