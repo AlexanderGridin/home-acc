@@ -2,10 +2,6 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row class="header__row">
       <div class="header__column">
-        <ng-container *ngTemplateOutlet="appMenu"></ng-container>
-      </div>
-
-      <div class="header__column">
         <ng-container *ngTemplateOutlet="appName"></ng-container>
       </div>
 
@@ -16,18 +12,13 @@
   </mat-toolbar>
 </div>
 
-<ng-template #appMenu>
-  <button mat-icon-button (click)="handleMenuButtonClick()">
-    <mat-icon>{{ menuButtonIcon }}</mat-icon>
-  </button>
-</ng-template>
-
 <ng-template #appName> App Name </ng-template>
 
 <ng-template #userMenu>
   <button mat-icon-button [matMenuTriggerFor]="userMenu">
     <mat-icon>person</mat-icon>
   </button>
+
   <mat-menu #userMenu="matMenu">
     <ng-template matMenuContent>
       <button mat-menu-item>

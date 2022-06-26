@@ -1,28 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-
-enum MenuButtonIcon {
-  Menu = 'menu',
-  Close = 'close',
-}
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nn-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-  public menuButtonIcon: MenuButtonIcon = MenuButtonIcon.Menu;
-
-  @Output() onMenuButtonClick: EventEmitter<void> = new EventEmitter<void>();
-  @Output() onUserButtonClick: EventEmitter<void> = new EventEmitter<void>();
-
-  public handleMenuButtonClick(): void {
-    if (this.menuButtonIcon === MenuButtonIcon.Menu) {
-      this.menuButtonIcon = MenuButtonIcon.Close;
-    } else {
-      this.menuButtonIcon = MenuButtonIcon.Menu;
-    }
-
-    this.onUserButtonClick.emit();
-  }
-}
+export class HeaderComponent {}
