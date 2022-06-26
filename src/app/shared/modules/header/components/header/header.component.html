@@ -1,0 +1,51 @@
+<div class="header">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="header__row">
+      <div class="header__column">
+        <ng-container *ngTemplateOutlet="appMenu"></ng-container>
+      </div>
+
+      <div class="header__column">
+        <ng-container *ngTemplateOutlet="appName"></ng-container>
+      </div>
+
+      <div class="header__column">
+        <ng-container *ngTemplateOutlet="userMenu"></ng-container>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<ng-template #appMenu>
+  <button mat-icon-button (click)="handleMenuButtonClick()">
+    <mat-icon>{{ menuButtonIcon }}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #appName> App Name </ng-template>
+
+<ng-template #userMenu>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="userMenu"
+    (click)="handleUserButtonClick()"
+  >
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <ng-template matMenuContent>
+      <button mat-menu-item>
+        <mat-icon>info</mat-icon>
+        <span>Info</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+</ng-template>
