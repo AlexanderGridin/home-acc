@@ -1,0 +1,41 @@
+.app-layout {
+  height: 100%;
+}
+.app-layout__container {
+  height: calc(100% - 64px);
+}
+
+.app-layout__content {
+  overflow: hidden;
+}
+
+.app-layout__content-inner {
+  padding: 25px;
+  padding-left: 35px;
+  height: 100%;
+  overflow: auto;
+}
+
+.app-layout__sidenav {
+  max-width: 250px;
+  width: 100%;
+  border-right: 1px solid #dddddd;
+  padding: 15px;
+  overflow: initial;
+}
+
+.app-layout__sidenav-toggler {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  border: 1px solid #dddddd;
+  border-top: none;
+  border-left: none;
+  background-color: #ffffff;
+}
+
+.app-layout__sidenav-toggler button {
+  padding: 0 !important;
+  min-width: auto;
+}
