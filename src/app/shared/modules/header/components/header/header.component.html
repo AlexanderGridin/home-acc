@@ -25,11 +25,7 @@
 <ng-template #appName> App Name </ng-template>
 
 <ng-template #userMenu>
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="userMenu"
-    (click)="handleUserButtonClick()"
-  >
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
     <mat-icon>person</mat-icon>
   </button>
   <mat-menu #userMenu="matMenu">
