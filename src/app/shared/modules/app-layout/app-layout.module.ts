@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderModule } from '../header/header.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TabsModule } from '../tabs/tabs.module';
 
 @NgModule({
   declarations: [AppLayoutComponent],
@@ -14,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderModule,
     MatButtonModule,
     MatIconModule,
+    TabsModule,
   ],
   exports: [AppLayoutComponent],
 })
