@@ -1,0 +1,23 @@
+.sidebar-container {
+  height: 100%;
+}
+
+.sidebar-container__sidenav {
+  max-width: 320px;
+  width: 100%;
+  padding: 15px;
+  border-right: 1px solid #dddddd;
+}
+
+.sidebar-container__content {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar-container__content-body {
+  height: calc(100% - 115px);
+  overflow: auto;
+  padding: 25px;
+  padding-left: 35px;
+}

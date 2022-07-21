@@ -1,3 +1,16 @@
 <nn-app-layout>
-  <router-outlet></router-outlet>
+  <nn-header slot="header"></nn-header>
+
+  <nn-sidebar-container slot="content">
+    <div slot="side-nav">Side-nav</div>
+
+    <div slot="content-header">
+      <nn-tabs></nn-tabs>
+    </div>
+
+    <div slot="content-body">
+      <div>Main content</div>
+      <router-outlet></router-outlet>
+    </div>
+  </nn-sidebar-container>
 </nn-app-layout>

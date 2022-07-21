@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav
+    class="sidebar-container__sidenav"
+    #sideNav
+    [opened]="isNavOpen"
+    disableClose
+    mode="side"
+  >
+    <ng-content select="[slot=side-nav]"></ng-content>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidebar-container__content">
+    <div class="sidebar-container__content-header">
+      <nn-sidebar-toggler
+        [isActive]="!isNavOpen"
+        (click)="handleSidebarTogglerClick()"
+      ></nn-sidebar-toggler>
+
+      <ng-content select="[slot=content-header]"></ng-content>
+    </div>
+
+    <div class="sidebar-container__content-body">
+      <ng-content select="[slot=content-body]"></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

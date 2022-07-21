@@ -1,0 +1,15 @@
+.sidebar-toggler {
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  border: 1px solid #dddddd;
+  border-top: none;
+  border-left: none;
+  background-color: #ffffff;
+}
+
+.sidebar-toggler button {
+  padding: 0 !important;
+  min-width: auto;
+}
