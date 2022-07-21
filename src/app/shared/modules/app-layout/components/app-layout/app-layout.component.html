@@ -1,27 +1,13 @@
 <div class="app-layout">
-  <nn-header></nn-header>
+  <div class="app-layout__header">
+    <ng-content select="[slot=header]"></ng-content>
+  </div>
 
-  <mat-sidenav-container class="app-layout__container">
-    <mat-sidenav
-      class="app-layout__sidenav"
-      #sideNav
-      [opened]="isNavOpen"
-      disableClose
-      mode="side"
-    >
-      <ng-content select="[slot=side-nav]"></ng-content>
-    </mat-sidenav>
+  <div class="app-layout__content">
+    <ng-content select="[slot=content]"></ng-content>
+  </div>
 
-    <mat-sidenav-content class="app-layout__content">
-      <div class="app-layout__sidenav-toggler">
-        <button mat-flat-button (click)="handleSideNavTogglerClick()">
-          <mat-icon>{{ sideNavTogglerIcon }}</mat-icon>
-        </button>
-      </div>
-      <nn-tabs></nn-tabs>
-      <div class="app-layout__content-inner">
-        <ng-content select="[slot=content]"></ng-content>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <div class="app-layout__footer">
+    <ng-content select="[slot=footer]"></ng-content>
+  </div>
 </div>

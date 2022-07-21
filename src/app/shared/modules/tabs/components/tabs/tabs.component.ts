@@ -1,9 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TrackByFunction } from '@angular/core';
 
 interface Tab {
   id: number;
   label: string;
   icon?: string;
+  isActive: boolean;
 }
 
 @Component({
@@ -16,16 +17,38 @@ export class TabsComponent {
     {
       id: 1,
       label: 'Tab 1',
+      isActive: false,
+      icon: 'edit_square',
     },
     {
       id: 2,
       label: 'Tab 2',
+      isActive: false,
+      icon: 'bookmark_added',
     },
     {
       id: 3,
       label: 'Tab 3',
+      isActive: false,
+      icon: 'edit_square',
     },
   ];
 
-  public trackByFn = (tab: Tab): number => tab.id;
+  public trackByFn: TrackByFunction<Tab> = (index: number) => index;
+
+  public handleTabClick({ id }: Tab): void {
+    this.tabs = this.tabs.map((existingTab: Tab) => {
+      if (id === existingTab.id) {
+        return {
+          ...existingTab,
+          isActive: true,
+        };
+      }
+
+      return {
+        ...existingTab,
+        isActive: false,
+      };
+    });
+  }
 }

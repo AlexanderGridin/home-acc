@@ -1,14 +1,16 @@
 <div class="tabs">
-  <!-- <mat-tab-group> -->
-  <!--   <mat-tab -->
-  <!--     *ngFor="let tab of tabs" -->
-  <!--     [label]="tab.label" -->
-  <!--     trackByFn="trackByFn" -->
-  <!--   ></mat-tab> -->
-  <!-- </mat-tab-group> -->
-  <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
-    <a mat-tab-link *ngFor="let tab of tabs"> {{ tab.label }} </a>
-    <a mat-tab-link disabled>Disabled Link</a>
-  </nav>
   <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <div *ngFor="let tab of tabs; index as i; trackBy: trackByFn">
+      <a
+        class="tab"
+        mat-tab-link
+        [active]="tab.isActive"
+        (click)="handleTabClick(tab)"
+        ><mat-icon class="tab__icon">{{ tab.icon }}</mat-icon> {{ tab.label }}
+      </a>
+      <button mat-icon-button><mat-icon>close</mat-icon></button>
+    </div>
+  </nav>
 </div>
