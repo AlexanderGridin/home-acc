@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Tab } from '@shared/modules/tabs/models';
+import { Tab } from '@core/modules/tabs/models';
 
 @Injectable()
 export class TabsService {
