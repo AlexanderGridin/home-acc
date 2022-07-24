@@ -12,7 +12,9 @@
   </mat-toolbar>
 </div>
 
-<ng-template #appName> App Name </ng-template>
+<ng-template #appName>
+  <a class="app-link" [routerLink]="'/'">App Name</a>
+</ng-template>
 
 <ng-template #userMenu>
   <button mat-icon-button [matMenuTriggerFor]="userMenu">
