@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nn-empty-page',
   templateUrl: './empty-page.component.html',
-  styleUrls: ['./empty-page.component.scss']
+  styleUrls: ['./empty-page.component.scss'],
 })
-export class EmptyPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class EmptyPageComponent {}

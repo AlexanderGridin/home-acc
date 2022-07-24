@@ -3,7 +3,10 @@
 
   <nn-sidebar-container slot="content">
     <div slot="side-nav">
-      <nn-navigation-list></nn-navigation-list>
+      <nn-navigation-list
+        [navigationLinks]="navigationLinks"
+        (onLinkClick)="handleNavigationLinkClick($event)"
+      ></nn-navigation-list>
     </div>
 
     <div slot="content-header">
