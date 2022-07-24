@@ -1,6 +1,6 @@
 import { Component, TrackByFunction } from '@angular/core';
-import { Tab } from '@shared/modules/tabs/models';
-import { TabsService } from '@shared/modules/tabs/services/tabs/tabs.service';
+import { Tab } from '@core/modules/tabs/models';
+import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
 import { Observable } from 'rxjs';
 
 @Component({
