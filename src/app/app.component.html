@@ -10,11 +10,14 @@
     </div>
 
     <div slot="content-header">
-      <nn-tabs></nn-tabs>
+      <nn-tabs
+        (onTabClick)="handleTabClick($event)"
+        (onTabClose)="handleTabClose($event)"
+      ></nn-tabs>
     </div>
 
     <div slot="content-body">
-      <router-outlet></router-outlet>
+      <ng-container nnPagesContainer></ng-container>
     </div>
   </nn-sidebar-container>
 </nn-app-layout>

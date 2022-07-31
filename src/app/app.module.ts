@@ -9,10 +9,11 @@ import { HeaderModule } from '@core/modules/header/header.module';
 import { SidebarContainerModule } from '@core/modules/sidebar-container/sidebar-container.module';
 import { TabsModule } from '@core/modules/tabs/tabs.module';
 import { NavigationListModule } from '@core/modules/navigation-list/navigation-list.module';
-import { EmptyPageComponent } from './core/components/empty-page/empty-page.component';
+import { PagesContainerDirective } from './core/directives/pages-container/pages-container.directive';
+import { PagesService } from '@core/services/pages/pages.service';
 
 @NgModule({
-  declarations: [AppComponent, EmptyPageComponent],
+  declarations: [AppComponent, PagesContainerDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +24,7 @@ import { EmptyPageComponent } from './core/components/empty-page/empty-page.comp
     TabsModule,
     NavigationListModule,
   ],
-  providers: [],
+  providers: [PagesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
