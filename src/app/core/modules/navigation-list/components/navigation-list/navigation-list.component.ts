@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationLink } from '@core/models/navigation-link.model';
-import { NAVIGATION_LINKS } from '../../static-data/navigation-links';
 
 @Component({
   selector: 'nn-navigation-list',
@@ -9,17 +7,13 @@ import { NAVIGATION_LINKS } from '../../static-data/navigation-links';
   styleUrls: ['./navigation-list.component.scss'],
 })
 export class NavigationListComponent {
-  public readonly navigationLinks: Array<NavigationLink> = NAVIGATION_LINKS;
+  @Input() navigationLinks: Array<NavigationLink> = [];
 
-  constructor(private readonly router: Router) {}
+  @Output() onLinkClick: EventEmitter<NavigationLink> =
+    new EventEmitter<NavigationLink>();
 
   public handleLinkClick(event: MouseEvent, link: NavigationLink): void {
     event.preventDefault();
-
-    this.router.navigate([link.path], {
-      state: {
-        isNavigatedFromNavigationList: true,
-      },
-    });
+    this.onLinkClick.emit(link);
   }
 }

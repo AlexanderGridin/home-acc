@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule, Routes } from '@angular/router';
-import { EmptyPageComponent } from '@core/components/empty-page/empty-page.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EmptyPageComponent,
-  },
   {
     path: 'dashboard',
     loadChildren: () =>
       import('@pages/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
       ),
+  },
+  {
+    path: 'notes',
+    loadChildren: () =>
+      import('@pages/notes/notes.module').then((m) => m.NotesModule),
   },
 ];
 

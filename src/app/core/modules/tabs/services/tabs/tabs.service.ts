@@ -5,13 +5,17 @@ import { Tab } from '@core/modules/tabs/models';
 @Injectable()
 export class TabsService {
   public tabs$: BehaviorSubject<Array<Tab>> = new BehaviorSubject<Array<Tab>>(
-    tabs
+    []
   );
 
   private newTabId: number = 1;
 
   public addTab(tab: Tab): void {
-    const tabs: Array<Tab> = this.tabs$.getValue();
+    const tabs: Array<Tab> = this.tabs$.getValue().map((tab: Tab) => ({
+      ...tab,
+      isActive: false,
+    }));
+
     tab.id = this.newTabId;
     this.newTabId++;
     tabs.push(tab);
@@ -38,69 +42,36 @@ export class TabsService {
     this.tabs$.next(updatedTabs);
   }
 
-  public removeTab(tab: Tab, tabIndex: number): void {
+  public removeTab(tab: Tab): Tab | null {
     const tabs: Array<Tab> = this.tabs$.getValue();
-
+    const tabIndex: number = tabs.findIndex(({ url }) => url === tab.url);
     const updatedTabs: Array<Tab> = tabs.filter(({ id }: Tab) => id !== tab.id);
+    let nextActiveTab: Tab | null = null;
 
-    if (!updatedTabs.length || !tab.isActive) {
+    if (!updatedTabs.length) {
       this.tabs$.next(updatedTabs);
-      return;
+      return nextActiveTab;
     }
 
     if (tabIndex > 0) {
-      updatedTabs[tabIndex - 1].isActive = true;
+      nextActiveTab = updatedTabs[tabIndex - 1];
+      nextActiveTab.isActive = true;
     }
 
     if (tabIndex === 0) {
-      updatedTabs[tabIndex].isActive = true;
+      nextActiveTab = updatedTabs[tabIndex];
+      nextActiveTab.isActive = true;
     }
 
     this.tabs$.next(updatedTabs);
+    return nextActiveTab;
+  }
+
+  public isTabExist(url: string): boolean {
+    return this.tabs$.getValue().some((tab: Tab) => tab.url === url);
+  }
+
+  public get isTabsExist(): boolean {
+    return Boolean(this.tabs$.getValue().length);
   }
 }
-
-const tabs: Array<Tab> = [
-  {
-    id: 1,
-    label: 'This is very long tab title',
-    isActive: false,
-    icon: 'edit_square',
-  },
-  {
-    id: 2,
-    label: 'Tab 2',
-    isActive: false,
-    icon: 'bookmark_added',
-  },
-  {
-    id: 3,
-    label: 'Tab 3',
-    isActive: false,
-    icon: 'edit_square',
-  },
-  {
-    id: 4,
-    label: 'Tab 4',
-    isActive: false,
-    icon: 'edit_square',
-  },
-  {
-    id: 5,
-    label: 'Tab 5',
-    isActive: false,
-    icon: 'edit_square',
-  },
-  {
-    id: 6,
-    label: 'Tab 6',
-    isActive: false,
-    icon: 'edit_square',
-  },
-  {
-    id: 7,
-    label: 'Tab 7',
-    isActive: false,
-    icon: 'edit_square',
-  },
-];

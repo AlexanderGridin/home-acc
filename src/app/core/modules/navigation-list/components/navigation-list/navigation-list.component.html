@@ -1,7 +1,7 @@
-<p>navigation-list works!</p>
 <ul class="navigation-list">
   <li class="navigation-list__item" *ngFor="let link of navigationLinks">
-    <a href="" (click)="handleLinkClick($event, link)">{{ link.title }}</a>
-    <!-- [routerLink]="link.path" -->
+    <a [href]="link.path" (click)="handleLinkClick($event, link)">{{
+      link.title
+    }}</a>
   </li>
 </ul>
