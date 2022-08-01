@@ -8,7 +8,7 @@ import {
 import { NavigationEnd, Router, Event, ActivatedRoute } from '@angular/router';
 import { Tab } from '@core/modules/tabs/models';
 import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
-import { PagesService } from '@core/services/pages/pages.service';
+import { PagesContainerService } from '@core/modules/pages-container/services/pages-container/pages-container.service';
 import { filter } from 'rxjs/operators';
 
 @Directive({
@@ -20,7 +20,7 @@ export class PagesContainerDirective implements OnInit {
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly tabsService: TabsService,
-    private readonly service: PagesService
+    private readonly service: PagesContainerService
   ) {}
 
   public ngOnInit(): void {

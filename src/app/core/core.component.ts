@@ -5,7 +5,7 @@ import { Tab } from '@core/modules/tabs/models';
 import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
 import { NAVIGATION_LINKS } from '@core/static-data/navigation-links';
 import { CloseTabData } from '@core/modules/tabs/models/close-tab-data.model';
-import { PagesService } from '@core/services/pages/pages.service';
+import { PagesContainerService } from '@core/modules/pages-container/services/pages-container/pages-container.service';
 
 @Component({
   selector: 'nn-core',
@@ -18,7 +18,7 @@ export class CoreComponent {
   constructor(
     private readonly router: Router,
     private readonly tabsService: TabsService,
-    private readonly pagesService: PagesService
+    private readonly pagesContainerService: PagesContainerService
   ) {}
 
   public handleTabClick(tab: Tab): void {
@@ -28,7 +28,7 @@ export class CoreComponent {
   public handleTabClose(data: CloseTabData): void {
     const { closedTab, nextActiveTab } = data;
 
-    this.pagesService.pages.remove(closedTab.url);
+    this.pagesContainerService.pages.remove(closedTab.url);
 
     if (nextActiveTab) {
       this.router.navigate([nextActiveTab.url]);

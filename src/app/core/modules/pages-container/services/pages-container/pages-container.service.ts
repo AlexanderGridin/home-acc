@@ -1,7 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core';
 
 @Injectable()
-export class PagesService {
+export class PagesContainerService {
   private readonly componentsRefsMap: Record<string, ComponentRef<any>> = {};
 
   public componentsRefs = {

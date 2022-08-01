@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreComponent } from '@core/core.component';
-import { AppRoutingModule } from '@core/routing/app-routing.module';
+import { AppRoutingModule } from '@core/modules/routing/app-routing.module';
 import { AppLayoutModule } from '@core/modules/app-layout/app-layout.module';
 import { HeaderModule } from '@core/modules/header/header.module';
 import { SidebarContainerModule } from '@core/modules/sidebar-container/sidebar-container.module';
 import { TabsModule } from '@core/modules/tabs/tabs.module';
 import { NavigationListModule } from '@core/modules/navigation-list/navigation-list.module';
-import { PagesContainerDirective } from '@core/directives/pages-container/pages-container.directive';
-import { PagesService } from '@core/services/pages/pages.service';
+import { PagesContainerModule } from './modules/pages-container/pages-container.module';
 
 @NgModule({
-  declarations: [CoreComponent, PagesContainerDirective],
+  declarations: [CoreComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -20,8 +19,8 @@ import { PagesService } from '@core/services/pages/pages.service';
     SidebarContainerModule,
     TabsModule,
     NavigationListModule,
+    PagesContainerModule,
   ],
-  providers: [PagesService],
   exports: [CoreComponent],
 })
 export class CoreModule {}
