@@ -1,0 +1,23 @@
+<nn-app-layout>
+  <nn-header slot="header"></nn-header>
+
+  <nn-sidebar-container slot="content">
+    <div slot="side-nav">
+      <nn-navigation-list
+        [navigationLinks]="navigationLinks"
+        (clickOnLink)="handleNavigationLinkClick($event)"
+      ></nn-navigation-list>
+    </div>
+
+    <div slot="content-header">
+      <nn-tabs
+        (clickOnTab)="handleTabClick($event)"
+        (closeTab)="handleTabClose($event)"
+      ></nn-tabs>
+    </div>
+
+    <div slot="content-body">
+      <ng-container nnPagesContainer></ng-container>
+    </div>
+  </nn-sidebar-container>
+</nn-app-layout>

@@ -9,11 +9,11 @@ import { NavigationLink } from '@core/models/navigation-link.model';
 export class NavigationListComponent {
   @Input() navigationLinks: Array<NavigationLink> = [];
 
-  @Output() onLinkClick: EventEmitter<NavigationLink> =
+  @Output() clickOnLink: EventEmitter<NavigationLink> =
     new EventEmitter<NavigationLink>();
 
   public handleLinkClick(event: MouseEvent, link: NavigationLink): void {
     event.preventDefault();
-    this.onLinkClick.emit(link);
+    this.clickOnLink.emit(link);
   }
 }
