@@ -5,14 +5,14 @@
     <div slot="side-nav">
       <nn-navigation-list
         [navigationLinks]="navigationLinks"
-        (onLinkClick)="handleNavigationLinkClick($event)"
+        (clickOnLink)="handleNavigationLinkClick($event)"
       ></nn-navigation-list>
     </div>
 
     <div slot="content-header">
       <nn-tabs
-        (onTabClick)="handleTabClick($event)"
-        (onTabClose)="handleTabClose($event)"
+        (clickOnTab)="handleTabClick($event)"
+        (closeTab)="handleTabClose($event)"
       ></nn-tabs>
     </div>
 

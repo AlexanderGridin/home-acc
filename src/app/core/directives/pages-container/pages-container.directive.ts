@@ -37,28 +37,26 @@ export class PagesContainerDirective implements OnInit {
     const url: string = this.router.routerState.snapshot.url;
     const component: Type<any> = this.activatedRoute?.firstChild?.firstChild
       ?.component as Type<any>;
-    const existingComponentRef = this.service.getComponentRef(url);
+    const existingComponentRef = this.service.componentsRefs.get(url);
 
     if (!component) {
       return;
     }
 
-    if (this.tabsService.isTabExist(url) && existingComponentRef) {
-      this.service.hideAllPages();
-      this.service.showPage(url);
+    if (this.tabsService.isExist(url) && existingComponentRef) {
+      this.service.pages.hideAll();
+      this.service.pages.show(url);
       return;
     }
 
     const title =
       this.activatedRoute?.firstChild?.firstChild?.snapshot?.data?.title;
 
-    this.tabsService.addTab(
-      new Tab({ label: title ?? '', url, isActive: true })
-    );
-    this.service.hideAllPages();
+    this.tabsService.add(new Tab({ label: title ?? '', url, isActive: true }));
+    this.service.pages.hideAll();
 
     const componentRef: ComponentRef<any> =
       this.container.createComponent(component);
-    this.service.registerComponentRef(componentRef, url);
+    this.service.componentsRefs.add(componentRef, url);
   }
 }

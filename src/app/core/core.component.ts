@@ -4,7 +4,7 @@ import { NavigationLink } from '@core/models/navigation-link.model';
 import { Tab } from '@core/modules/tabs/models';
 import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
 import { NAVIGATION_LINKS } from '@core/static-data/navigation-links';
-import { CloseTabData } from '@core/modules/tabs/components/tabs/tabs.component';
+import { CloseTabData } from '@core/modules/tabs/models/close-tab-data.model';
 import { PagesService } from '@core/services/pages/pages.service';
 
 @Component({
@@ -28,14 +28,14 @@ export class CoreComponent {
   public handleTabClose(data: CloseTabData): void {
     const { closedTab, nextActiveTab } = data;
 
-    this.pagesService.removePage(closedTab.url);
+    this.pagesService.pages.remove(closedTab.url);
 
     if (nextActiveTab) {
       this.router.navigate([nextActiveTab.url]);
       return;
     }
 
-    if (!this.tabsService.isTabsExist) {
+    if (this.tabsService.isEmpty) {
       this.router.navigate(['/']);
     }
   }
