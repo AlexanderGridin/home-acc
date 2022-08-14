@@ -6,11 +6,11 @@ import { AppLayoutModule } from '@core/modules/app-layout/app-layout.module';
 import { HeaderModule } from '@core/modules/header/header.module';
 import { SidebarContainerModule } from '@core/modules/sidebar-container/sidebar-container.module';
 import { TabsModule } from '@core/modules/tabs/tabs.module';
-import { NavigationListModule } from '@core/modules/navigation-list/navigation-list.module';
 import { PagesContainerModule } from './modules/pages-container/pages-container.module';
+import { NavigationListComponent } from './components/navigation-list/navigation-list.component';
 
 @NgModule({
-  declarations: [CoreComponent],
+  declarations: [CoreComponent, NavigationListComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -18,7 +18,6 @@ import { PagesContainerModule } from './modules/pages-container/pages-container.
     HeaderModule,
     SidebarContainerModule,
     TabsModule,
-    NavigationListModule,
     PagesContainerModule,
   ],
   exports: [CoreComponent],
