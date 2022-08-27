@@ -16,11 +16,11 @@ import { filter } from 'rxjs/operators';
 })
 export class PagesContainerDirective implements OnInit {
   constructor(
-    private readonly container: ViewContainerRef,
     private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute,
+    private readonly service: PagesContainerService,
+    private readonly container: ViewContainerRef,
     private readonly tabsService: TabsService,
-    private readonly service: PagesContainerService
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   public ngOnInit(): void {
@@ -46,6 +46,7 @@ export class PagesContainerDirective implements OnInit {
     if (this.tabsService.isExist(url) && existingComponentRef) {
       this.service.pages.hideAll();
       this.service.pages.show(url);
+      this.tabsService.activeteByUrl(url);
       return;
     }
 
