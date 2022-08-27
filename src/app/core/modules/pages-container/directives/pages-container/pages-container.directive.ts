@@ -6,8 +6,6 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { NavigationEnd, Router, Event, ActivatedRoute } from '@angular/router';
-import { Tab } from '@core/modules/tabs/models';
-import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
 import { PagesContainerService } from '@core/modules/pages-container/services/pages-container/pages-container.service';
 import { filter } from 'rxjs/operators';
 
@@ -19,7 +17,6 @@ export class PagesContainerDirective implements OnInit {
     private readonly router: Router,
     private readonly service: PagesContainerService,
     private readonly container: ViewContainerRef,
-    private readonly tabsService: TabsService,
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
@@ -43,17 +40,12 @@ export class PagesContainerDirective implements OnInit {
       return;
     }
 
-    if (this.tabsService.isExist(url) && existingComponentRef) {
+    if (existingComponentRef) {
       this.service.pages.hideAll();
       this.service.pages.show(url);
-      this.tabsService.activeteByUrl(url);
       return;
     }
 
-    const title =
-      this.activatedRoute?.firstChild?.firstChild?.snapshot?.data?.title;
-
-    this.tabsService.add(new Tab({ label: title ?? '', url, isActive: true }));
     this.service.pages.hideAll();
 
     const componentRef: ComponentRef<any> =
