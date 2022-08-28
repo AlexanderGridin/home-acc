@@ -67,6 +67,25 @@ export class TabsService {
     this.tabs$.next(updatedTabs);
   }
 
+  public activeteByUrl(url: string): void {
+    const tabs: Array<Tab> = this.tabs$.getValue();
+    const updatedTabs: Array<Tab> = tabs.map((existingTab: Tab) => {
+      if (url === existingTab.url) {
+        return {
+          ...existingTab,
+          isActive: true,
+        };
+      }
+
+      return {
+        ...existingTab,
+        isActive: false,
+      };
+    });
+
+    this.tabs$.next(updatedTabs);
+  }
+
   public isExist(url: string): boolean {
     return this.tabs$.getValue().some((tab: Tab) => tab.url === url);
   }
