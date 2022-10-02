@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "nn",
+      "prefix": "hac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
