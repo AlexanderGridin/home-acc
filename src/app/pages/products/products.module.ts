@@ -8,6 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TextInputModule } from '@components-lib/text-input/text-input.module';
+import { NumericInputModule } from '@components-lib/numeric-input/numeric-input.module';
+import { SingleSelectModule } from '@components-lib/single-select/single-select.module';
 
 const routes: Routes = [
   {
@@ -32,6 +35,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
+    TextInputModule,
+    NumericInputModule,
+    SingleSelectModule,
   ],
 })
 export class ProductsModule {}

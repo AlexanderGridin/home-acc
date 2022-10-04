@@ -3,25 +3,25 @@
 
   <mat-card-content>
     <form [formGroup]="form">
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Название товара</mat-label>
-        <input
-          type="text"
-          matInput
-          [formControl]="getControl('name')"
-          placeholder="Введите название товара"
-        />
-      </mat-form-field>
+      <hac-text-input
+        [control]="form.controls.name"
+        [label]="'Название продукта'"
+        [placeholder]="'Введите название продукта'"
+        [id]="'product-name'"
+      ></hac-text-input>
 
-      <mat-form-field class="form-field" appearance="fill">
-        <mat-label>Стоимость</mat-label>
-        <input
-          type="text"
-          matInput
-          [formControl]="getControl('price')"
-          placeholder="Введите стоимость товара"
-        />
-      </mat-form-field>
+      <hac-numeric-input
+        [control]="form.controls.price"
+        [label]="'Стоимость'"
+        [placeholder]="'Введите стоимость продукта'"
+        [id]="'product-price'"
+      ></hac-numeric-input>
+
+      <hac-single-select
+        [control]="form.controls.singleSelect"
+        [label]="'Просто тест сингл селекта'"
+        [data]="singleSelectiItems"
+      ></hac-single-select>
 
       <mat-form-field class="form-field" appearance="fill">
         <mat-label>Примечания</mat-label>
@@ -33,6 +33,10 @@
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="handleSaveClick()">
       Save
+    </button>
+
+    <button mat-raised-button color="primary" (click)="toggleFormDisabling()">
+      Toggle form disabling
     </button>
   </mat-card-actions>
 </mat-card>
