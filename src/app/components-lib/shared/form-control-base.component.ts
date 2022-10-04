@@ -10,6 +10,7 @@ export abstract class FormControlBase implements OnDestroy {
   @Input() public label = '';
   @Input() public placeholder = '';
   @Input() public id = '';
+  @Input() public disabled = false;
 
   protected readonly destroy$: Subject<void> = new Subject<void>();
 
