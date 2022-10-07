@@ -7,14 +7,19 @@ interface FormType {
   name: FormControl<string>;
   price: FormControl<number | null>;
   notes: FormControl<string>;
-  singleSelect: FormControl<number | null>;
+  singleSelect: FormControl<SSIType | null>;
 }
 
 interface FormValueType {
   name: string;
   price: number | null;
   notes: string;
-  singleSelect: number | null;
+  singleSelect: SSIType | null;
+}
+
+interface SSIType {
+  id: number;
+  name: string;
 }
 
 @Component({
@@ -32,25 +37,37 @@ export class ProductFormComponent extends FormBase<FormType, FormValueType> {
     notes: new FormControl<string>('', {
       nonNullable: true,
     }),
-    singleSelect: new FormControl<number | null>(null, [Validators.required]),
+    singleSelect: new FormControl<SSIType | null>(null, [Validators.required]),
   });
 
-  public singleSelectiItems: Array<SingleSelectItem> = [
+  public singleSelectiItems: Array<SingleSelectItem<SSIType>> = [
     {
       viewValue: 'Test 1',
-      value: 1,
+      value: {
+        id: 1,
+        name: 'test1',
+      },
     },
     {
       viewValue: 'Test 2',
-      value: 2,
+      value: {
+        id: 2,
+        name: 'test2',
+      },
     },
     {
       viewValue: 'Test 3',
-      value: 3,
+      value: {
+        id: 3,
+        name: 'test3',
+      },
     },
   ];
   protected initForm(): void {
     this.form.controls.price.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+    this.form.controls.singleSelect.valueChanges.subscribe((value) => {
       console.log(value);
     });
   }

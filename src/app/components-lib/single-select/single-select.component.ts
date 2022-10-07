@@ -2,9 +2,9 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
 import { FormControlBase } from '@components-lib/shared/form-control-base.component';
 
-export interface SingleSelectItem {
+export interface SingleSelectItem<ValueType = any> {
   viewValue: string;
-  value: string | number;
+  value: ValueType;
 }
 
 @Component({
