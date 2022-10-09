@@ -1,0 +1,9 @@
+<button
+  mat-raised-button
+  color="primary"
+  class="button"
+  (click)="handleClick()"
+>
+  <mat-icon *ngIf="icon" class="button__icon">{{ icon }}</mat-icon>
+  {{ text }}
+</button>
