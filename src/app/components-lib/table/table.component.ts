@@ -1,14 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export class TableColumn {
-  public title: string;
-  public field: string;
-
-  constructor({ title, field }: TableColumn) {
-    this.title = title;
-    this.field = field;
-  }
-}
+import { TableColumn } from './models/table-column.model';
 
 @Component({
   selector: 'hac-table',

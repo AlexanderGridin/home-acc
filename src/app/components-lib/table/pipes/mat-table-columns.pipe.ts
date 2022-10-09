@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TableColumn } from '../table.component';
+import { TableColumn } from '../models/table-column.model';
 
 @Pipe({ name: 'matTableColumns' })
 export class MatTableColumnsPipe implements PipeTransform {
