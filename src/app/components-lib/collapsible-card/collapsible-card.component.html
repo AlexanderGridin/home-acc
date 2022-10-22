@@ -1,0 +1,17 @@
+<mat-expansion-panel style="margin-bottom: 25px">
+  <mat-expansion-panel-header>
+    <mat-panel-title *ngIf="title"> {{ title }} </mat-panel-title>
+
+    <mat-panel-description *ngIf="description">
+      {{ description }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <ng-template matExpansionPanelContent>
+    <ng-content></ng-content>
+  </ng-template>
+
+  <mat-action-row *ngIf="showActions">
+    <ng-content select="[section=actions]"></ng-content>
+  </mat-action-row>
+</mat-expansion-panel>
