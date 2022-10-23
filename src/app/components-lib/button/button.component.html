@@ -2,6 +2,7 @@
   mat-raised-button
   color="primary"
   class="button"
+  [disabled]="disabled"
   (click)="handleClick()"
 >
   <mat-icon *ngIf="icon" class="button__icon">{{ icon }}</mat-icon>
