@@ -6,9 +6,10 @@ import { pairwise, startWith, takeUntil } from 'rxjs/operators';
 @Component({
   template: '',
 })
-export abstract class FormBase<FormType, FormValueType>
+export abstract class FormBase<FormType, ValueType>
   implements OnInit, OnDestroy
 {
+  public abstract readonly controlName: string;
   public abstract readonly form: FormGroup;
 
   protected readonly destroy$: Subject<void> = new Subject<void>();
@@ -23,7 +24,7 @@ export abstract class FormBase<FormType, FormValueType>
     return this.form.get(name as string) as FormControl<ValueType>;
   }
 
-  public getFormValue(): Observable<Array<FormValueType>> {
+  public getFormValue(): Observable<Array<ValueType>> {
     return this.form.valueChanges.pipe(
       startWith(this.form.value),
       pairwise(),
