@@ -1,0 +1,15 @@
+<hac-collapsible-card [title]="'Добавить товар'" [showActions]="true">
+  <form [formGroup]="form">
+    <hac-product-form></hac-product-form>
+  </form>
+
+  <ng-container section="actions">
+    <hac-button
+      [text]="'Добавить'"
+      [icon]="'add'"
+      (onClick)="handleSaveClick()"
+    ></hac-button>
+
+    <hac-button [text]="'Отмена'" (onClick)="handleCancelClick()"></hac-button>
+  </ng-container>
+</hac-collapsible-card>
