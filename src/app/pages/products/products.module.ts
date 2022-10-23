@@ -2,42 +2,34 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductPageComponent } from './components/product-page/product-page.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { ProductsPageComponent } from './components/products-page/products-page.component';
+import { ProductFormModule } from '@shared/components/product-form/product-form.module';
+import { AddProductCollapsibleCardComponent } from './components/add-product-collapsible-card/add-product-collapsible-card.component';
+import { CollapsibleCardModule } from '@components-lib/collapsible-card/collapsible-card.module';
+import { ButtonModule } from '@components-lib/button/button.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { TextInputModule } from '@components-lib/text-input/text-input.module';
-import { NumericInputModule } from '@components-lib/numeric-input/numeric-input.module';
-import { SingleSelectModule } from '@components-lib/single-select/single-select.module';
 
 const routes: Routes = [
   {
-    path: 'add',
-    component: ProductFormComponent,
-    data: { title: 'Add product' },
-  },
-  {
-    path: ':id',
-    component: ProductPageComponent,
-    data: { title: 'View product' },
+    path: '',
+    component: ProductsPageComponent,
+    data: { title: 'Товары' },
   },
 ];
 
 @NgModule({
-  declarations: [ProductPageComponent, ProductFormComponent],
+  declarations: [
+    ProductPageComponent,
+    ProductsPageComponent,
+    AddProductCollapsibleCardComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatCardModule,
-    MatButtonModule,
+    ProductFormModule,
+    CollapsibleCardModule,
+    ButtonModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    TextInputModule,
-    NumericInputModule,
-    SingleSelectModule,
   ],
 })
 export class ProductsModule {}
