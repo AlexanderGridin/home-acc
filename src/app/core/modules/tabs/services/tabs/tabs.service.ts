@@ -86,6 +86,22 @@ export class TabsService {
     this.tabs$.next(updatedTabs);
   }
 
+  public setActiveTabTitle(title: string): void {
+    const tabs: Array<Tab> = this.tabs$.getValue();
+    const updatedTabs: Array<Tab> = tabs.map((existingTab: Tab) => {
+      if (!existingTab.isActive) {
+        return existingTab;
+      }
+
+      return {
+        ...existingTab,
+        label: title,
+      };
+    });
+
+    this.tabs$.next(updatedTabs);
+  }
+
   public isExist(url: string): boolean {
     return this.tabs$.getValue().some((tab: Tab) => tab.url === url);
   }

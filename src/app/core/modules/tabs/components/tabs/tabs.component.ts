@@ -55,9 +55,7 @@ export class TabsComponent implements OnInit {
       return;
     }
 
-    const title =
-      this.activatedRoute?.firstChild?.firstChild?.snapshot?.data?.title;
-    this.service.add(new Tab({ label: title ?? '', url, isActive: true }));
+    this.service.add(new Tab({ label: '', url, isActive: true }));
   }
 
   public get tabs$(): Observable<Array<Tab>> {

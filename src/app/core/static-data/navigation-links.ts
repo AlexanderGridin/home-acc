@@ -10,7 +10,7 @@ export const NAVIGATION_LINKS: Array<NavigationLink> = [
     path: '/notes',
   },
   {
-    title: 'Add product',
-    path: '/product/add',
+    title: 'Товары',
+    path: '/products',
   },
 ];

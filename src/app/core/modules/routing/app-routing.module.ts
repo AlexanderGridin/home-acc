@@ -15,7 +15,7 @@ const routes: Routes = [
       import('@pages/notes/notes.module').then((m) => m.NotesModule),
   },
   {
-    path: 'product',
+    path: 'products',
     loadChildren: () =>
       import('@pages/products/products.module').then((m) => m.ProductsModule),
   },

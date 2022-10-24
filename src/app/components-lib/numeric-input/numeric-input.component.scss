@@ -1,0 +1,16 @@
+.numeric-input {
+  display: block;
+  width: 100%;
+}
+
+/* Firefox */
+.numeric-input__control {
+  -moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.numeric-input__control::-webkit-outer-spin-button,
+.numeric-input__control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -11,3 +11,13 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* Global Angular Material styles corrections */
+.mat-card-header-text {
+  margin: 0 !important;
+}
+
+.mat-card-actions {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
