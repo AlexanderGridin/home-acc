@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PageBaseComponent } from '@shared/classes/page-base.component';
 
 @Component({
   selector: 'nn-notes-page',
   templateUrl: './notes-page.component.html',
-  styleUrls: ['./notes-page.component.scss']
+  styleUrls: ['./notes-page.component.scss'],
 })
-export class NotesPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class NotesPageComponent extends PageBaseComponent {
+  public get title(): string {
+    return 'Notes';
   }
-
 }
