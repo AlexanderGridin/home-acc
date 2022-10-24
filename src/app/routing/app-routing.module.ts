@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NavigationListComponent } from './components/navigation-list/navigation-list.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  declarations: [NavigationListComponent],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule, NavigationListComponent],
 })
 export class AppRoutingModule {}

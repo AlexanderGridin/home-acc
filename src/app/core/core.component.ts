@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavigationLink } from '@core/models/navigation-link.model';
+import { NavigationLink } from 'app/routing/models/navigation-link.model';
 import { Tab } from '@core/modules/tabs/models';
 import { TabsService } from '@core/modules/tabs/services/tabs/tabs.service';
-import { NAVIGATION_LINKS } from '@core/static-data/navigation-links';
+import { NAVIGATION_LINKS } from 'app/routing/static-data/navigation-links';
 import { CloseTabData } from '@core/modules/tabs/models/close-tab-data.model';
 import { PagesContainerService } from '@core/modules/pages-container/services/pages-container/pages-container.service';
 
@@ -38,13 +38,5 @@ export class CoreComponent {
     if (this.tabsService.isEmpty) {
       this.router.navigate(['/']);
     }
-  }
-
-  public handleNavigationLinkClick(link: NavigationLink): void {
-    this.router.navigate([link.path], {
-      state: {
-        isNavigatedFromNavigationList: true,
-      },
-    });
   }
 }
