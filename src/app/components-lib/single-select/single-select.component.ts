@@ -18,7 +18,7 @@ export class SingleSelectComponent extends FormControlBase {
   @Input() public clearButtonText = 'Очистить';
   @Input() public isLoading = false;
 
-  @ViewChild(MatSelect, { static: true }) select!: MatSelect;
+  @ViewChild(MatSelect) select!: MatSelect;
 
   public handleClearClick(): void {
     this.control.reset();

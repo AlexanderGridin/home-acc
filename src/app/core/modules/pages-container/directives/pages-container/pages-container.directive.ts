@@ -40,13 +40,12 @@ export class PagesContainerDirective implements OnInit {
       return;
     }
 
+    this.service.pages.hideAll();
+
     if (existingComponentRef) {
-      this.service.pages.hideAll();
       this.service.pages.show(url);
       return;
     }
-
-    this.service.pages.hideAll();
 
     const componentRef: ComponentRef<any> =
       this.container.createComponent(component);
