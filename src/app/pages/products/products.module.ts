@@ -8,6 +8,7 @@ import { AddProductCollapsibleCardComponent } from './components/add-product-col
 import { CollapsibleCardModule } from '@components-lib/collapsible-card/collapsible-card.module';
 import { ButtonModule } from '@components-lib/button/button.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageModule } from '@shared/components/page/page.module';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
     CollapsibleCardModule,
     ButtonModule,
     ReactiveFormsModule,
+    PageModule,
   ],
 })
 export class ProductsModule {}
